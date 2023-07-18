@@ -9,6 +9,17 @@ vinny_bills = [1, 2, 3]
 food_expense = int(input("How much are you spending on food this month? > "))
 
 
+# Creating input for user to enter expenses
+def expense_collector():
+  expense_list_length = input(f"How many expenses are you calculating today? > ")
+  expense_list = [0] * int(expense_list_length)
+  i = 0
+  while i + 1 <= len(expense_list):
+    expense_list_value = input(f"Expense # {i + 1} cost > ")
+    expense_list[i] = int(expense_list_value)
+    i += 1
+  print(expense_list)
+
 
 def expense_summer(expenses):
   total_expenses = 0
@@ -38,8 +49,8 @@ def budget_splitter():
   print(f"Amanda's percentage is {amanda_spending_money_percentage} and Vinny's percentage is {vinny_spending_money_percentage}")
   print(f"Amanda's spending money after bills is {amanda_spending_money} and Vinny's is {vinny_spending_money}")
   print(f"Combined spending money after bills is {combined_spending_money}")
-  print(f"If food cost is {food_expense} then Amanda pays {amanda_food_percent} and Vinny pays {vinny_food_percent}")
+  print(f"If food cost is {food_expense} dollars then Amanda pays {amanda_food_percent} and Vinny pays {vinny_food_percent}")
   
 
-
+expense_collector()
 budget_splitter()
