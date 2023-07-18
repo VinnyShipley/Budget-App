@@ -6,33 +6,32 @@ amanda_bills = [1, 2]
 
 vinny_bills = [1, 2, 3]
 
-food_expense = int(input("How much are you spending on food this month? > "))
 
+def income_collector():
+  input
 
 # Creating input for user to enter expenses
 def expense_collector():
   expense_list_length = input(f"How many expenses are you calculating today? > ")
   expense_list = [0] * int(expense_list_length)
   i = 0
+  
+  # Collects expenses
   while i + 1 <= len(expense_list):
-    expense_list_value = input(f"Expense # {i + 1} cost > ")
+    expense_list_value = input(f"Expense # {i + 1} cost in dollars > ")
     expense_list[i] = int(expense_list_value)
     i += 1
-  print(expense_list)
+  
+  return expense_list
 
 
-def expense_summer(expenses):
-  total_expenses = 0
-  for expense in expenses:
-    total_expenses += expense
-  return int(total_expenses)
 
 
 def budget_splitter():
   
   #Remaining spending money after bills calculation
-  vinny_bills_summed = expense_summer(vinny_bills)
-  amanda_bills_summed = expense_summer(amanda_bills)
+  vinny_bills_summed = sum(vinny_bills)
+  amanda_bills_summed = sum(amanda_bills)
   vinny_spending_money = vinny_income - vinny_bills_summed
   amanda_spending_money = amanda_income - amanda_bills_summed
   
@@ -40,17 +39,13 @@ def budget_splitter():
   combined_spending_money = vinny_spending_money + amanda_spending_money
   vinny_spending_money_percentage = vinny_spending_money / combined_spending_money
   amanda_spending_money_percentage = amanda_spending_money / combined_spending_money
-  
-  # Expense breakdown calculator
-  vinny_food_percent = food_expense * vinny_spending_money_percentage
-  amanda_food_percent = food_expense * amanda_spending_money_percentage
 
-  #Readout
+  #Printout
   print(f"Amanda's percentage is {amanda_spending_money_percentage} and Vinny's percentage is {vinny_spending_money_percentage}")
   print(f"Amanda's spending money after bills is {amanda_spending_money} and Vinny's is {vinny_spending_money}")
   print(f"Combined spending money after bills is {combined_spending_money}")
-  print(f"If food cost is {food_expense} dollars then Amanda pays {amanda_food_percent} and Vinny pays {vinny_food_percent}")
   
+
 
 expense_collector()
 budget_splitter()
