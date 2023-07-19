@@ -1,10 +1,3 @@
-vinny_income = 150
-
-amanda_income = 200
-
-amanda_bills = [1, 2]
-
-vinny_bills = [1, 2, 3]
 
 
 def income_collector():
@@ -26,41 +19,64 @@ def income_collector():
 
 
 # Creating input for user to enter expenses
-def expense_collector():
-  expense_list_length = input(f"How many expenses are you calculating today? > ")
-  expense_list = [0] * int(expense_list_length)
-  i = 0
+def expense_collector(income_list_input):
+  j = 0
+  for income in income_list_input:
+    expense_list_length = input(f"How many expenses are you calculating today for income {income_list_input[j]}> ")
+    expense_list = [0] * int(expense_list_length)
+    j += 1
+    
   
-  # Collects expenses
-  while i + 1 <= len(expense_list):
-    expense_list_value = input(f"Expense # {i + 1} cost in dollars: > ")
-    expense_list[i] = int(expense_list_value)
-    i += 1
+    # Collects expenses
+    i = 0
+    while i + 1 <= len(expense_list):
+      expense_list_value = input(f"Expense # {i + 1} cost in dollars: > ")
+      expense_list[i] = int(expense_list_value)
+      i += 1
   
   return expense_list
 
 
 
 
-def budget_splitter():
+def budget_splitter(list_of_incomes_final, list_of_expenses_per_income_final):
+  list_of_incomes_after_expenses = [0] * len(list_of_incomes_final)
+  
+  
+  #Loop that subtracts expenses from the correct income and returns list of incomes after expenses
+  j = 0
+  for income in list_of_incomes_final:
+    money_after_expenses = list_of_incomes_final[j] - list_of_expenses_per_income_final[j]
+    list_of_incomes_after_expenses[j] = money_after_expenses
+    j += 1
+  
+  
+  combined_spending_money = sum(list_of_incomes_after_expenses)
+  
+  #Gathers percentages of spending money per incomes after expenses
+  i = 0
+  while i <= len(list_of_incomes_final):
+    percent_person_pays = combined_spending_money / list_of_incomes_after_expenses[i]
+    print(f"The person with the income of {list_of_incomes_final[i]} will pay {percent_person_pays}")
+    i += 1
   
   #Remaining spending money after bills calculation
-  vinny_bills_summed = sum(vinny_bills)
-  amanda_bills_summed = sum(amanda_bills)
-  vinny_spending_money = vinny_income - vinny_bills_summed
-  amanda_spending_money = amanda_income - amanda_bills_summed
+  # vinny_bills_summed = sum(vinny_bills)
+  # amanda_bills_summed = sum(amanda_bills)
+  # vinny_spending_money = vinny_income - vinny_bills_summed
+  # amanda_spending_money = amanda_income - amanda_bills_summed
   
   #Spending money and spending money percentage calculator
-  combined_spending_money = vinny_spending_money + amanda_spending_money
-  vinny_spending_money_percentage = vinny_spending_money / combined_spending_money
-  amanda_spending_money_percentage = amanda_spending_money / combined_spending_money
+  # combined_spending_money = vinny_spending_money + amanda_spending_money
+  # vinny_spending_money_percentage = vinny_spending_money / combined_spending_money
+  # amanda_spending_money_percentage = amanda_spending_money / combined_spending_money
 
   #Printout
-  print(f"Amanda's percentage is {amanda_spending_money_percentage} and Vinny's percentage is {vinny_spending_money_percentage}")
-  print(f"Amanda's spending money after bills is {amanda_spending_money} and Vinny's is {vinny_spending_money}")
-  print(f"Combined spending money after bills is {combined_spending_money}")
+  # print(f"Amanda's percentage is {amanda_spending_money_percentage} and Vinny's percentage is {vinny_spending_money_percentage}")
+  # print(f"Amanda's spending money after bills is {amanda_spending_money} and Vinny's is {vinny_spending_money}")
+  # print(f"Combined spending money after bills is {combined_spending_money}")
   
 
-income_collector()
-expense_collector()
-budget_splitter()
+incomes = income_collector()
+expenses_for_each_income = expense_collector(incomes)
+budget_splitter(incomes, expenses_for_each_income)
