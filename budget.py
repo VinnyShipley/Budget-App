@@ -8,7 +8,22 @@ vinny_bills = [1, 2, 3]
 
 
 def income_collector():
-  input
+  
+  #Gets number of incomes
+  number_of_incomes = input('How many incomes are we calculating today? > ')
+  income_list = [0] * int(number_of_incomes)
+  i = 0
+  
+  #Fills the income list with the entered incomes
+  while i + 1 <= len(income_list):
+    income_list_value = input(f"Income # {i + 1} amount: > ")
+    income_list[i] = int(income_list_value)
+    i += 1
+  
+  
+  return income_list
+
+
 
 # Creating input for user to enter expenses
 def expense_collector():
@@ -18,7 +33,7 @@ def expense_collector():
   
   # Collects expenses
   while i + 1 <= len(expense_list):
-    expense_list_value = input(f"Expense # {i + 1} cost in dollars > ")
+    expense_list_value = input(f"Expense # {i + 1} cost in dollars: > ")
     expense_list[i] = int(expense_list_value)
     i += 1
   
@@ -46,6 +61,6 @@ def budget_splitter():
   print(f"Combined spending money after bills is {combined_spending_money}")
   
 
-
+income_collector()
 expense_collector()
 budget_splitter()
