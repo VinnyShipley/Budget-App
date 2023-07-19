@@ -22,7 +22,7 @@ def income_collector():
 def expense_collector(income_list_input):
   j = 0
   for income in income_list_input:
-    expense_list_length = input(f"How many expenses are you calculating today for income {income_list_input[j]}> ")
+    expense_list_length = input(f"How many expenses are you calculating today for income {j + 1}> ")
     expense_list = [0] * int(expense_list_length)
     j += 1
     
