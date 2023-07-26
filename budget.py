@@ -55,7 +55,7 @@ def budget_splitter(list_of_incomes_final, list_of_expenses_per_income_final):
   
   #Gathers percentages of spending money per incomes after expenses
   i = 0
-  while i <= len(list_of_incomes_final):
+  while i < len(list_of_incomes_final):
     percent_person_pays =  list_of_incomes_after_expenses[i] / combined_spending_money
     print(f"The person with the income of {list_of_incomes_final[i]} will pay {percent_person_pays} % of the expenses after bills this month.")
     i += 1
