@@ -52,21 +52,21 @@ def budget_splitter(list_of_incomes_final, list_of_expenses_per_income_final):
   
 
   
-  # #Creates and displays the combined money after expenses
-  # combined_spending_money = sum(list_of_incomes_after_expenses)
-  # print(f"The combined remaining money for fun expenses after bills is {combined_spending_money}")
+  #Creates and displays the combined money after expenses
+  combined_spending_money = sum(incomes_after_expenses)
+  print(f"The combined remaining money for fun expenses after bills is {combined_spending_money}")
 
   
   
-  # #Gathers percentages of spending money per incomes after expenses
-  # i = 0
-  # while i < len(list_of_incomes_final):
-  #   precise_percent_person_pays =  list_of_incomes_after_expenses[i] / combined_spending_money
-  #   rounded_percent_person_pays = 100 * (round(precise_percent_person_pays, 2))
+  #Gathers percentages of spending money per incomes after expenses
+  i = 0
+  while i < len(list_of_incomes_final):
+    precise_percent_person_pays =  incomes_after_expenses[i] / combined_spending_money
+    rounded_percent_person_pays = 100 * (round(precise_percent_person_pays, 2))
     
-  #   print(f"The person with the income of {list_of_incomes_final[i]} will pay {rounded_percent_person_pays} % of the expenses after bills this month.")
+    print(f"The person with the income of {list_of_incomes_final[i]} will pay {rounded_percent_person_pays} % of the expenses after bills this month.")
 
-  #   i += 1
+    i += 1
 
 
 incomes = income_collector()
