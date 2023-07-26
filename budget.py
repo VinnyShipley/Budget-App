@@ -29,7 +29,7 @@ def expense_collector(income_list_input):
   
     # Collects expenses
     i = 0
-    while i + 1 <= len(expense_list_length):
+    while i + 1 <= int(expense_list_length):
       expense_list_value = input(f"Expense # {i + 1} cost in dollars: > ")
       expenses_for_this_income += int(expense_list_value)
       i += 1
