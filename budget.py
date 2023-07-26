@@ -62,24 +62,7 @@ def budget_splitter(list_of_incomes_final, list_of_expenses_per_income_final):
     rounded_percent_person_pays = round(precise_percent_person_pays, 2)
     print(f"The person with the income of {list_of_incomes_final[i]} will pay {rounded_percent_person_pays} % of the expenses after bills this month.")
     i += 1
-  
-  
-  #Remaining spending money after bills calculation
-  # vinny_bills_summed = sum(vinny_bills)
-  # amanda_bills_summed = sum(amanda_bills)
-  # vinny_spending_money = vinny_income - vinny_bills_summed
-  # amanda_spending_money = amanda_income - amanda_bills_summed
-  
-  #Spending money and spending money percentage calculator
-  # combined_spending_money = vinny_spending_money + amanda_spending_money
-  # vinny_spending_money_percentage = vinny_spending_money / combined_spending_money
-  # amanda_spending_money_percentage = amanda_spending_money / combined_spending_money
 
-  #Printout
-  # print(f"Amanda's percentage is {amanda_spending_money_percentage} and Vinny's percentage is {vinny_spending_money_percentage}")
-  # print(f"Amanda's spending money after bills is {amanda_spending_money} and Vinny's is {vinny_spending_money}")
-  # print(f"Combined spending money after bills is {combined_spending_money}")
-  
 
 incomes = income_collector()
 expenses_for_each_income = expense_collector(incomes)
